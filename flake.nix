@@ -25,17 +25,21 @@
       default = pkgs.${system}.mkShellNoCC {
         packages = with pkgs.${system};
           [
-            (mkPoetryEnv {projectDir = self;})
+            # (mkPoetryEnv {projectDir = self;})
             poetry
             ruff
-            black
             isort
+            git-crypt
           ]
           ++ (with pkgs.${system}.python311Packages; [
             python-lsp-ruff
             python-lsp-server
             pytest
+            aocd
           ]);
+        shellHook = ''
+          export $(xargs <.envg)
+        '';
       };
     });
   };

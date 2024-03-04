@@ -1,6 +1,6 @@
-from rich.panel import Panel
 from rich.align import Align
 from rich.console import Console
+from rich.panel import Panel
 
 console = Console(color_system="truecolor")
 

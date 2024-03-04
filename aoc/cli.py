@@ -1,9 +1,11 @@
-import typer
 from pathlib import Path
-from aoc.utils import file_to_string
+
+import typer
+
 from aoc.day_1 import day_1_func, day_1_p2
 from aoc.day_2 import day_2_p1, day_2_p2
 from aoc.render import render
+from aoc.utils import file_to_string
 
 app = typer.Typer()
 

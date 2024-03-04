@@ -6,6 +6,7 @@ from aocd import get_data
 
 from aoc.day_1 import day_1_func, day_1_p2
 from aoc.day_2 import day_2_p1, day_2_p2
+from aoc.day_3 import day_3_p1, day_3_p2
 from aoc.render import render
 from aoc.utils import file_to_string
 
@@ -53,6 +54,6 @@ def day_3(input: Annotated[
     else:
         data = get_data(day=3, year=2022)
 
-    p1 = None
-    p2 = None
+    p1 = day_3_p1(data)
+    p2 = day_3_p2(data)
     render(p1, p2, "Three")

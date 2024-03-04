@@ -38,7 +38,7 @@
             aocd
           ]);
         shellHook = ''
-          export $(xargs <.envg)
+          # export $(xargs <.envg)
         '';
       };
     });

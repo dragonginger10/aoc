@@ -33,6 +33,6 @@ def day_3_p2(input: str) -> int:
 
 
 def priority(item: str) -> int:
-	for i, l in enumerate(ascii_letters):
-		if l == item:
+	for i, letter in enumerate(ascii_letters):
+		if letter == item:
 			return i + 1

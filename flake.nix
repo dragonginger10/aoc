@@ -36,6 +36,8 @@
             python-lsp-server
             pytest
             aocd
+            typer
+            rich
           ]);
         shellHook = ''
           # export $(xargs <.envg)

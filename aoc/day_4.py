@@ -1,19 +1,39 @@
 def day_4_p1(input: str) -> int:
     data: list[str] = input.splitlines()
-    elf_pairs: list[list[str]] = [line.split(",") for line in data]
     contained: int = 0
 
-    for pair in elf_pairs:
-        elf1, elf2 = pair
-        elf1_numbers = elf_string_to_numbers(elf1)
-        elf2_numbers = elf_string_to_numbers(elf2)
+    for line in data:
+        elf1, elf2 = [list(map(int, pair.split("-"))) for pair in line.split(",")]
+        if elf1[0] != elf2[0]:
+            if elf1[0] > elf2[0]:
+                inside, outside = elf1, elf2
+            else:
+                inside, outside = elf2, elf1
+        else:
+            if elf1[1] < elf2[1]:
+                inside, outside = elf1, elf2
+            else:
+                inside, outside = elf2, elf1
+            
 
-        if (elf1_numbers in elf2_numbers) or (elf2_numbers in elf1_numbers):
+        if inside[1] <= outside[1]:
+            contained += 1
+  
+    return contained
+
+def day_4_p2(input: str) -> int:
+    data: list[str] = input.splitlines()
+    contained: int = 0
+
+    for line in data:
+        elf1, elf2 = [list(map(int, pair.split("-"))) for pair in line.split(",")]
+
+        if elf1[0] > elf2[0]: 
+            inside, outside = elf1, elf2
+        else:
+            inside, outside = elf2, elf1
+
+        if inside[0] <= outside[1]:
             contained += 1
 
     return contained
-
-def elf_string_to_numbers(elf: str) -> str:
-    elf_numbers = [int(i) for i in elf.split("-")]
-    numbers = [str(i) for i in range(elf_numbers[0], elf_numbers[-1])]
-    return "".join(numbers)

@@ -1,4 +1,3 @@
-from rich import print
 N = 9
 LINES = 8
 

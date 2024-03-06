@@ -14,4 +14,4 @@ def test_day_5_p1():
     assert day_5_p1(INPUT) == "CMZ"
 
 def test_day_5_p2():
-    assert day_5_p2(INPUT) == None
+    assert day_5_p2(INPUT) == "MCD"

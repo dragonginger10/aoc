@@ -9,6 +9,7 @@ from aoc.day_2 import day_2_p1, day_2_p2
 from aoc.day_3 import day_3_p1, day_3_p2
 from aoc.day_4 import day_4_p1, day_4_p2
 from aoc.day_5 import day_5_p1, day_5_p2
+from aoc.day_6 import day_6_func
 from aoc.render import render
 from aoc.utils import file_to_string
 
@@ -91,3 +92,19 @@ def day_5(input: Annotated[
     p1 = day_5_p1(data)
     p2 = day_5_p2(data)
     render(p1, p2, "Five")
+
+@app.command(name="six")
+def day_6(input: Annotated[
+        Optional[Path],
+        typer.Argument(
+        help="Optional file for input",
+    )
+    ] = None) -> None:
+    if input:
+        data = file_to_string(input)
+    else:
+        data = get_data(day=6, year=2022)
+
+    p1 = day_6_func(data, 4)
+    p2 = day_6_func(data, 14)
+    render(p1, p2, "Six")
